@@ -4,6 +4,7 @@ from stactools.noaa_climate_normals import stac
 
 
 class StacTest(unittest.TestCase):
+
     def test_create_collection(self):
         # Write tests for each for the creation of a STAC Collection
         # Create the STAC Collection...

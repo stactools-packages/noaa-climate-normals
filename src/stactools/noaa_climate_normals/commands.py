@@ -9,9 +9,11 @@ logger = logging.getLogger(__name__)
 
 def create_noaaclimatenormals_command(cli):
     """Creates the stactools-noaa-climate-normals command line utility."""
+
     @cli.group(
         "noaaclimatenormals",
-        short_help=("Commands for working with stactools-noaa-climate-normals"),
+        short_help=(
+            "Commands for working with stactools-noaa-climate-normals"),
     )
     def noaaclimatenormals():
         pass

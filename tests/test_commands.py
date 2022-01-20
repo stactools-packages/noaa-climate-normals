@@ -4,10 +4,12 @@ from tempfile import TemporaryDirectory
 import pystac
 from stactools.testing import CliTestCase
 
-from stactools.noaa_climate_normals.commands import create_noaaclimatenormals_command
+from stactools.noaa_climate_normals.commands import \
+    create_noaaclimatenormals_command
 
 
 class CommandsTest(CliTestCase):
+
     def create_subcommand_functions(self):
         return [create_noaaclimatenormals_command]
 

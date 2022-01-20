@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Checks a directory of Climate Normals files for schema consistancy.
+"""Checks a directory of Climate Normals files for schema consistency.
 
 This is part of research into the dataset -- do all files have the same schema?
 
@@ -7,11 +7,11 @@ The single argument should be a directory which holds the CSV files. E.g. `scrip
 normals-monthly/2006-2020/access`.
 """
 
-from collections import defaultdict
 import csv
 import os
 import sys
 import warnings
+from collections import defaultdict
 
 import tqdm
 
