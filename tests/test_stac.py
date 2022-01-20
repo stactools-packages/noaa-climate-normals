@@ -1,6 +1,6 @@
 import unittest
 
-from stactools.ephemeral import stac
+from stactools.noaa_climate_normals import stac
 
 
 class StacTest(unittest.TestCase):

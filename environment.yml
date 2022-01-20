@@ -1,4 +1,4 @@
-name: stactools-ephemeral
+name: stactools-noaa-climate-normals
 channels:
   - conda-forge
   - defaults
