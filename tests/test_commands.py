@@ -5,23 +5,24 @@ import pystac
 from stactools.testing import CliTestCase
 
 from stactools.noaa_climate_normals.commands import \
-    create_noaaclimatenormals_command
+    create_noaa_climate_normals_command
+
+from . import test_data
 
 
 class CommandsTest(CliTestCase):
 
     def create_subcommand_functions(self):
-        return [create_noaaclimatenormals_command]
+        return [create_noaa_climate_normals_command]
 
     def test_create_collection(self):
+        source = test_data.get_path("data-files/normals-monthly")
         with TemporaryDirectory() as tmp_dir:
-            # Run your custom create-collection command and validate
-
-            # Example:
-            destination = os.path.join(tmp_dir, "collection.json")
-
-            result = self.run_command(
-                ["noaa-climate-normals", "create-collection", destination])
+            destination = os.path.join(tmp_dir, "output")
+            result = self.run_command([
+                "noaa-climate-normals", "create-collection", source,
+                destination
+            ])
 
             self.assertEqual(result.exit_code,
                              0,
