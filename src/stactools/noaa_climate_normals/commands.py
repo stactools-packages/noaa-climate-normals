@@ -11,14 +11,14 @@ def create_noaaclimatenormals_command(cli):
     """Creates the stactools-noaa-climate-normals command line utility."""
 
     @cli.group(
-        "noaaclimatenormals",
+        "noaa-climate-normals",
         short_help=(
-            "Commands for working with stactools-noaa-climate-normals"),
+            "Commands for working with the NOAA Climate Normals dataset"),
     )
-    def noaaclimatenormals():
+    def noaa_climate_normals():
         pass
 
-    @noaaclimatenormals.command(
+    @noaa_climate_normals.command(
         "create-collection",
         short_help="Creates a STAC collection",
     )
@@ -37,7 +37,8 @@ def create_noaaclimatenormals_command(cli):
 
         return None
 
-    @noaaclimatenormals.command("create-item", short_help="Create a STAC item")
+    @noaa_climate_normals.command("create-item",
+                                  short_help="Create a STAC item")
     @click.argument("source")
     @click.argument("destination")
     def create_item_command(source: str, destination: str):
@@ -53,4 +54,4 @@ def create_noaaclimatenormals_command(cli):
 
         return None
 
-    return noaaclimatenormals
+    return noaa_climate_normals
