@@ -1,4 +1,5 @@
 import logging
+import os.path
 
 import click
 
@@ -7,7 +8,7 @@ from stactools.noaa_climate_normals import stac
 logger = logging.getLogger(__name__)
 
 
-def create_noaaclimatenormals_command(cli):
+def create_noaa_climate_normals_command(cli):
     """Creates the stactools-noaa-climate-normals command line utility."""
 
     @cli.group(
@@ -22,17 +23,17 @@ def create_noaaclimatenormals_command(cli):
         "create-collection",
         short_help="Creates a STAC collection",
     )
-    @click.argument("destination")
-    def create_collection_command(destination: str):
-        """Creates a STAC Collection
+    @click.argument("SOURCE")
+    @click.argument("DESTINATION")
+    def create_collection_command(source: str, destination: str):
+        """Converts NOAA Climate Normals data to a parquet table, and creates a collection (with items) for that table.
 
         Args:
-            destination (str): An HREF for the Collection JSON
+            source (str): The source directory containing climate normals data
+            destination (str): The target href that will hold the STAC collection, items, and parquet table
         """
-        collection = stac.create_collection()
-
-        collection.set_self_href(destination)
-
+        collection = stac.create_collection(source)
+        collection.set_self_href(os.path.join(destination, "collection.json"))
         collection.save_object()
 
         return None
