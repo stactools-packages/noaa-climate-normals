@@ -9,7 +9,7 @@ stactools.core.use_fsspec()
 
 def register_plugin(registry):
     from stactools.noaa_climate_normals import commands
-    registry.register_subcommand(commands.create_noaaclimatenormals_command)
+    registry.register_subcommand(commands.create_noaa_climate_normals_command)
 
 
 __version__ = "0.1.0"
